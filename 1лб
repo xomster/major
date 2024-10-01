@@ -15,45 +15,41 @@ def task_integer11():
         tens = (num // 10) % 10
         ones = num % 10
 
-        # Сума та добуток цифр
-        digit_sum = hundreds + tens + ones
+# Сума та добуток цифр        
+digit_sum = hundreds + tens + ones
         digit_product = hundreds * tens * ones
 
-        # Виводимо результат
+        # Обчислюємо чисельник
         print(f"Sum of digits: {digit_sum}")
         print(f"Product of digits: {digit_product}")
 
 task_integer11()
 
-Enter a three-digit number: 123
-You entered: 123
-Sum of digits: 6
-Product of digits: 6
 
 
-
-
- import math
+import math
 
 def calculate_y(x):
     try:
-        # Вычисляем числитель
+        # Обчислюємо чисельник
         numerator = (2 * x**2 - abs(math.sin(x)) * abs(math.tan(x)) * 2.5**math.cos(x))**(1/5)
         
-        # Вычисляем знаменатель
+        # Обчислюємо знаменник
         denominator = 0.625 + 2 * math.log2(x + 7.5)
         
-        # Полное выражение
+        # Повний вираз
         y = numerator / denominator
         
         return y
     except ValueError:
-        return "Ошибка: недопустимые значения для логарифма или других математических операций."
+        return " Помилка: неприпустимі значення для логарифму чи інших математичних операцій."
 
-# Пример использования
-x = float(input("Введите значение x: "))
+# Приклад використання
+x = float(input("Введіть значення x: "))
 result = calculate_y(x)
 print(f"y = {result}")
+
+
 
 
 def check_positive():
@@ -63,20 +59,16 @@ def check_positive():
         B = int(input("Введите число B: "))
         C = int(input("Введите число C: "))
     except ValueError:
-        print("Все значения должны быть целыми числами!")
-        return
+        print("Усі значення мають бути цілими числами!")        return
     
-    # Проверка условия: хотя бы одно из чисел положительное
-    res = A > 0 or B > 0 or C > 0
+    # Перевірка умови: хоча б одне із чисел позитивне    
+res = A > 0 or B > 0 or C > 0
     
-    # Вывод результата
+    # Висновок результату
     print( res)
 
-# Вызов функции для проверки
+# Визов функції перевірки
 check_positive()
-
-
-
 
 
 
