@@ -1,3 +1,61 @@
+def task_integer11():
+    """Given a three-digit number, find the sum and product of its digits."""
+    try:
+        num = int(input("Enter a three-digit number: "))
+        print(f"You entered: {num}")  # Додаємо перевірку на введене число
+        
+        if num < 100 or num > 999:
+            raise ValueError("The number must be three digits!")
+    except ValueError as e:
+        print(e)
+        return  # Зупиняємо виконання, якщо є помилка
+    else:
+        # Витягуємо цифри
+        hundreds = num // 100
+        tens = (num // 10) % 10
+        ones = num % 10
+
+        # Сума та добуток цифр
+        digit_sum = hundreds + tens + ones
+        digit_product = hundreds * tens * ones
+
+        # Виводимо результат
+        print(f"Sum of digits: {digit_sum}")
+        print(f"Product of digits: {digit_product}")
+
+task_integer11()
+
+Enter a three-digit number: 123
+You entered: 123
+Sum of digits: 6
+Product of digits: 6
+
+
+
+
+ import math
+
+def calculate_y(x):
+    try:
+        # Вычисляем числитель
+        numerator = (2 * x**2 - abs(math.sin(x)) * abs(math.tan(x)) * 2.5**math.cos(x))**(1/5)
+        
+        # Вычисляем знаменатель
+        denominator = 0.625 + 2 * math.log2(x + 7.5)
+        
+        # Полное выражение
+        y = numerator / denominator
+        
+        return y
+    except ValueError:
+        return "Ошибка: недопустимые значения для логарифма или других математических операций."
+
+# Пример использования
+x = float(input("Введите значение x: "))
+result = calculate_y(x)
+print(f"y = {result}")
+
+
 def check_positive():
     try:
         # Ввод трёх целых чисел A, B, C
@@ -16,3 +74,9 @@ def check_positive():
 
 # Вызов функции для проверки
 check_positive()
+
+
+
+
+
+
