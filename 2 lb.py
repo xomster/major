@@ -19,52 +19,27 @@ def task_if19():
 
 
 
+def is_in_yellow_area(x, y):
+    
+    return 0 <= x <= 1 and 0 <= y <= 1  # Задайте межі жовтої області
 
-def is_in_yellow_area(x, y, r):
-    """
-    Перевіряє, чи точка з координатами (x, y) потрапляє в коло радіусом r.
-    
-    Параметри:
-    x (float): Координата x точки.
-    y (float): Координата y точки.
-    r (float): Радіус кола.
-    
-    Повертає:
-    bool: True, якщо точка знаходиться в межах кола, False інакше.
-    """
-    return (x - r)**2 + (y - r)**2 <= r**2
-
-def task_geom_area(points, r=1.0):
-    """
-    Завдання 2: Підраховує кількість точок, що потрапляють у геометричну область (коло радіусом r).
-    
-    Параметри:
-    points (list of tuples): Список точок, кожна точка подана як кортеж (x, y).
-    r (float): Радіус кола, за замовчуванням 1.0.
-    
-    Повертає:
-    int: Кількість точок, що потрапляють у область.
-    """
-    # Перевірка на коректність введених даних
-    if not isinstance(points, list) or not all(isinstance(p, tuple) and len(p) == 2 for p in points):
-        raise ValueError("points повинні бути списком кортежів (x, y).")
-    
-    if not isinstance(r, (int, float)) or r <= 0:
-        raise ValueError("Радіус повинен бути додатним числом.")
-    
-    # Підрахунок точок у межах області
-    count_in_yellow_area = sum(1 for x, y in points if is_in_yellow_area(x, y, r))
+def task_geom_area(points):
+   
+    count_in_yellow_area = sum(1 for x, y in points if is_in_yellow_area(x, y))
     return count_in_yellow_area
-
-# Приклад використання функції
 try:
-    points = [(0.5, 1.5), (1.2, 0.8), (2.0, 2.0)]  # Введені точки
-    r = 1.0  # Радіус кола
-    result = task_geom_area(points, r)
-    print(f"Кількість точок, що потрапляють у область: {result}")
+    n = int(input("Введіть кількість точок: "))  # Кількість точок
+    points = []
+
+    for i in range(n):
+        x, y = map(float, input(f"Введіть координати точки {i+1} (x y): ").split())
+        points.append((x, y))
+
+    result = task_geom_area(points)
+    print(f"Кількість точок, що потрапляють у жовту область: {result}")
+
 except ValueError as e:
     print(f"Помилка: {e}")
-
 
 
 import math
@@ -104,6 +79,7 @@ epsilon = 1e-10  # Можна змінити, наприклад, на 1e-20
 g = 1e3         # Межа для розбіжності
 result = factorial_series(epsilon, g)
 print(f'Сума ряду: {result}')
+
 
 
 
@@ -158,3 +134,4 @@ def menu():
 
 # Викликаємо меню
 menu()
+ 
