@@ -1,23 +1,31 @@
-def power_a3(a):
-    """Повертає третій ступінь числа a."""
-    return a ** 3
+def Even(K: int) -> bool:
+    return K % 2 == 0
 
-def power_of_5(in_list):
-    """Повертає список із п'яти чисел, зведених у третій ступінь."""
-    return [power_a3(a) for a in in_list]
+# Функція, яка приймає список чисел і повертає кількість парних
+def count_even_numbers(numbers: list) -> int:
+    return sum(1 for num in numbers if Even(num))
 
-def task1():
-    """Запитує у користувача п'ять чисел, виводить їх третій ступінь."""
-    in_data = []
+# Функція для введення даних, виклику попередніх функцій і виведення результатів
+def main():
+    # Введення 5 цілих чисел від користувача
+    numbers = []
     for i in range(5):
-        number = float(input("Введіть число: "))
-        in_data.append(number)
-    out_data = power_of_5(in_data)  
-    print("Числа, зведені на третій ступінь:", out_data)
+        num = int(input(f"Введіть число {i + 1}: "))
+        numbers.append(num)
+
+    # Виклик функції для підрахунку парних чисел
+    even_count = count_even_numbers(numbers)
+
+    # Виведення результату
+    print(f"Кількість парних чисел у наборі: {even_count}")
+
+# Виклик основної функції
+main()
 
 
-if __name__ == "__main__":
-    task1()
+
+
+
 
 
 
